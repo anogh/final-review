@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: private-chat-app
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+    - key: NODE_ENV
+      value: production
+    - key: PORT
+      value: 10000
+    - key: USER1_PASSWORD
+      value: your_user1_password_here
+    - key: USER2_PASSWORD
+      value: your_user2_password_here
+      - key: GOOGLE_APPLICATION_CREDENTIALS_JSON
+        sync: false
+      - key: DEFAULT_SOURCE_LANGUAGE
+        value: auto
+      - key: DEFAULT_TARGET_LANGUAGE
+        value: en
