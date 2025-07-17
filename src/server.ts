@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import path from 'path';
@@ -37,7 +37,7 @@ const userConnections = {
 };
 
 // Authentication endpoint
-app.post('/api/auth', (req, res) => {
+app.post('/api/auth', (req: Request, res: Response) => {
   const { password } = req.body;
   
   const authResult = authService.validatePassword(password);
@@ -194,7 +194,7 @@ io.on('connection', (socket) => {
 });
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get('/api/health', (req: Request, res: Response) => {
   const user1Count = userConnections.User1.size;
   const user2Count = userConnections.User2.size;
   
@@ -210,7 +210,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Serve the main page
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
