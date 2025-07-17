@@ -8,6 +8,7 @@ import { TranslationService } from './services/translationService';
 import { AuthService } from './services/authService';
 import { ChatMessage, TranslatedMessage, MessageWithMeta, ConnectedUser } from './types/chat';
 
+// Force fresh deployment - TypeScript fixes applied
 // Load environment variables
 dotenv.config();
 
